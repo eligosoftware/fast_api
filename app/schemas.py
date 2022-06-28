@@ -32,11 +32,19 @@ class Post(PostBase):
     id: int
     created_at: datetime
     owner_id: int
+    content: str
+    title: str
     owner: UserOut
     
     class Config:
         orm_mode=True
 
+class PostOut(BaseModel):
+    Post: Post
+    votes: int
+    
+    class Config:
+        orm_mode=True
 
 class Token(BaseModel):
     access_token: str
